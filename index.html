@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAS Al-Ittihad Tawangsari - Trowulan, Mojokerto</title>
+    <meta name="description" content="Website Resmi Madrasah Aliyah Swasta (MAS) Al-Ittihad Tawangsari, Kecamatan Trowulan, Kabupaten Mojokerto, Jawa Timur. NPSN: 20584241.">
+    
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        emerald: {
+                            850: '#064e3b',
+                            950: '#022c22',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Pola geometris Islami halus untuk latar belakang hero */
+        .islamic-pattern {
+            background-color: #064e3b;
+            background-image: radial-gradient(#10b981 0.75px, transparent 0.75px), radial-gradient(#10b981 0.75px, #064e3b 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-600 selection:text-white">
+
+    <!-- Top Info Bar -->
+    <div class="bg-emerald-950 text-emerald-100 text-xs py-2 px-4 hidden md:block border-b border-emerald-800/50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <span><i class="fas fa-id-card mr-1.5 text-amber-400"></i> NPSN: <strong>20584241</strong></span>
+                <span><i class="fas fa-certificate mr-1.5 text-amber-400"></i> NSM: <strong>131235160033</strong></span>
+                <span><i class="fas fa-award mr-1.5 text-amber-400"></i> Terakreditasi <strong>B</strong></span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span><i class="fas fa-map-marker-alt mr-1.5 text-amber-400"></i> Jl. Raden Wijaya No. 105, Tawangsari, Trowulan</span>
+                <a href="https://www.facebook.com/p/MA-Al-Ittihad-Tawangsari-Trowulan-100063801349621/" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition" aria-label="Facebook Resmi">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.youtube.com/watch?v=jEJerq-mX7w" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition" aria-label="YouTube Resmi">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo & Brand -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-700 to-emerald-900 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fas fa-mosque text-xl text-amber-300"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-extrabold text-lg sm:text-xl text-emerald-950 block leading-tight">MAS AL-ITTIHAD</span>
+                        <span class="text-xs font-medium text-emerald-700 tracking-wide block">TAWANGSARI • TROWULAN</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                    <a href="#beranda" class="hover:text-emerald-700 transition">Beranda</a>
+                    <a href="#profil" class="hover:text-emerald-700 transition">Identitas & Profil</a>
+                    <a href="#program" class="hover:text-emerald-700 transition">Program Unggulan</a>
+                    <a href="#video" class="hover:text-emerald-700 transition">Profil Pesantren</a>
+                    <a href="#kontak" class="hover:text-emerald-700 transition">Lokasi</a>
+                    <button onclick="openPpdbModal()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2.5 rounded-xl font-semibold shadow-sm hover:shadow transition flex items-center gap-2">
+                        <span>Info PPDB</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2.5 rounded-xl text-slate-600 hover:bg-slate-100 focus:outline-none" aria-label="Buka Menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-6 space-y-2 shadow-lg">
+            <a href="#beranda" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">Beranda</a>
+            <a href="#profil" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">Identitas & Profil</a>
+            <a href="#program" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">Program Unggulan</a>
+            <a href="#video" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">Profil Pesantren</a>
+            <a href="#kontak" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">Lokasi & Kontak</a>
+            <div class="pt-2">
+                <button onclick="openPpdbModal()" class="w-full bg-emerald-700 text-white py-3 rounded-xl font-semibold shadow">
+                    Pendaftaran Siswa Baru (PPDB)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative islamic-pattern text-white overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-emerald-950/95 via-emerald-900/90 to-emerald-800/80"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-emerald-800/80 border border-emerald-600/50 rounded-full px-4 py-1.5 text-xs sm:text-sm font-medium text-emerald-100 backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                        <span>Naungan Pondok Pesantren Al-Ittihad (Berdiri Sejak 1956)</span>
+                    </div>
+                    
+                    <h1 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+                        Mencetak Generasi <span class="text-amber-400">Berakhlakul Karimah</span>, Cerdas & Berdaya Saing
+                    </h1>
+                    
+                    <p class="text-emerald-100/90 text-base sm:text-lg leading-relaxed max-w-2xl">
+                        Madrasah Aliyah Swasta (MAS) Al-Ittihad Tawangsari memadukan kurikulum pendidikan nasional dengan tradisi keilmuan pesantren salaf dan tahfidzul Qur'an di jantung sejarah Trowulan, Mojokerto.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="openPpdbModal()" class="bg-amber-500 hover:bg-amber-400 text-emerald-950 font-bold px-6 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Daftar Sekarang</span>
+                        </button>
+                        <a href="#profil" class="bg-white/10 hover:bg-white/20 border border-white/25 text-white font-semibold px-6 py-3.5 rounded-xl backdrop-blur-sm transition flex items-center gap-2">
+                            <i class="fas fa-school"></i>
+                            <span>Lihat Data Sekolah</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-emerald-700/60 max-w-lg">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-heading font-extrabold text-amber-400">B</div>
+                            <div class="text-xs sm:text-sm text-emerald-200">Status Akreditasi</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-heading font-extrabold text-white">1956</div>
+                            <div class="text-xs sm:text-sm text-emerald-200">Akar Pesantren</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-heading font-extrabold text-amber-400">20584241</div>
+                            <div class="text-xs sm:text-sm text-emerald-200">NPSN Resmi</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Card / Visual -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-2xl shadow-2xl">
+                        <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-emerald-950">
+                            <img 
+                                src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" 
+                                onerror="this.onerror=null;this.src='https://placehold.co/800x600/064e3b/ffffff?text=MAS+Al-Ittihad+Tawangsari';"
+                                alt="Lingkungan Belajar MAS Al-Ittihad Tawangsari" 
+                                class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-transparent to-transparent flex items-end p-6">
+                                <div>
+                                    <span class="bg-amber-500 text-emerald-950 text-xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">Kementerian Agama RI</span>
+                                    <h2 class="text-white font-heading font-bold text-lg mt-2">MAS Al-Ittihad Tawangsari</h2>
+                                    <p class="text-emerald-200 text-xs mt-0.5"><i class="fas fa-location-dot mr-1"></i> Jl. Raden Wijaya No. 105, Trowulan, Mojokerto</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Identitas Resmi (Berdasarkan Referensi Kemendikdasmen) -->
+    <section id="profil" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-emerald-700 font-semibold text-sm tracking-wider uppercase">Data Pokok Pendidikan</span>
+                <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mt-2">Identitas Resmi Madrasah</h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                    Informasi kelembagaan resmi yang terintegrasi dengan data Kementerian Pendidikan Dasar dan Menengah serta Kementerian Agama Republik Indonesia.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Tabel Identitas Utama -->
+                <div class="lg:col-span-2 bg-slate-50 border border-slate-200/80 rounded-2xl p-6 sm:p-8 shadow-sm">
+                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-200">
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-slate-900 flex items-center gap-2.5">
+                            <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                                <i class="fas fa-building-columns"></i>
+                            </span>
+                            Profil Satuan Pendidikan
+                        </h3>
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
+                            <i class="fas fa-check-circle mr-1.5"></i> Aktif
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 text-sm">
+                        <div class="border-b border-slate-200/70 pb-3">
+                            <span class="text-slate-500 block text-xs uppercase tracking-wider">Nama Satuan Pendidikan</span>
+                            <span class="font-bold text-slate-900 text-base mt-0.5 block">MAS AL-ITTIHAD</span>
+                        </div>
+                        <div class="border-b border-slate-200/70 pb-3 flex justify-between items-center">
+                            <div>
+                                <span class="text-slate-500 block text-xs uppercase tracking-wider">NPSN</span>
+                                <span id="npsn-text" class="font-bold text-emerald-700 text-base mt-0.5 block">20584241</span>
+                            </div>
+                            <button onclick="copyNpsn()" class="text-xs bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 px-2.5 py-1.5 rounded-lg transition" title="Salin NPSN">
+                                <i class="far fa-copy mr-1"></i> Salin
+                            </button>
+                        </div>
+                        <div class="border-b border-slate-200/70 pb-3">
+                            <span class="text-slate-500 block text-xs uppercase tracking-wider">Nomor Statistik Madrasah (NSM)</span>
+                            <span class="font-semibold text-slate-800 mt-0.5 block">131235160033</span>
+                        </div>
+                        <div class="border-b border-slate-200/70 pb-3">
+                            <span class="text-slate-500 block text-xs uppercase tracking-wider">Jenjang & Status</span>
+                            <span class="font-semibold text-slate-800 mt-0.5 block">Madrasah Aliyah (MA) • Swasta</span>
+                        </div>
+                        <div class="border-b border-slate-200/70 pb-3">
+                            <span class="text-slate-500 block text-xs uppercase tracking-wider">Akreditasi</span>
+                            <span class="font-semibold text-slate-800 mt-0.5 block">Terakreditasi B</span>
+                        </div>
+                        <div class="border-b border-slate-200/70 pb-3">
+                            <span class="text-slate-500 block text-xs uppercase tracking-wider">Naungan</span>
+                            <span class="font-semibold text-slate-800 mt-0.5 block">Kementerian Agama / Yayasan Al-Ittihad</span>
+                        </div>
+                        <div class="sm:col-span-2 pt-1">
+                            <span class="text-slate-500 block text-xs uppercase tracking-wider">Alamat Lengkap</span>
+                            <span class="font-semibold text-slate-800 mt-0.5 block">
+                                Jl. Raden Wijaya No. 105, Desa Tawangsari, Kecamatan Trowulan, Kabupaten Mojokerto, Provinsi Jawa Timur
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ekosistem Pendidikan Al-Ittihad & Tautan Resmi -->
+                <div class="bg-gradient-to-br from-emerald-900 to-emerald-950 text-white rounded-2xl p-6 sm:p-8 shadow-lg flex flex-col justify-between">
+                    <div>
+                        <span class="inline-block bg-amber-400/20 text-amber-300 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                            Ekosistem Terpadu
+                        </span>
+                        <h3 class="font-heading font-bold text-xl mb-3">Satu Kawasan Pendidikan Pesantren</h3>
+                        <p class="text-emerald-100/85 text-sm leading-relaxed mb-6">
+                            MAS Al-Ittihad berada dalam satu kawasan terpadu bersama Pondok Pesantren Al-Ittihad Tawangsari yang menaungi jenjang pendidikan berkesinambungan:
+                        </p>
+                        <ul class="space-y-2.5 text-sm text-emerald-100 mb-6">
+                            <li class="flex items-center gap-2.5">
+                                <i class="fas fa-check-circle text-amber-400"></i>
+                                <span>RA / BA Al-Ittihad Tawangsari</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i class="fas fa-check-circle text-amber-400"></i>
+                                <span>MIS Al-Ittihad (NPSN: 60717324)</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i class="fas fa-check-circle text-amber-400"></i>
+                                <span>SMP Pondok Pesantren Al-Ittihad</span>
+                            </li>
+                            <li class="flex items-center gap-2.5 font-semibold text-white">
+                                <i class="fas fa-star text-amber-400"></i>
+                                <span>MAS Al-Ittihad (NPSN: 20584241)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-4 border-t border-emerald-800 space-y-2.5">
+                        <p class="text-xs text-emerald-300 font-medium">Verifikasi Data Eksternal:</p>
+                        <a href="https://referensi.data.kemendikdasmen.go.id/pendidikan/npsn/20584241" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between bg-white/10 hover:bg-white/20 px-4 py-2.5 rounded-xl text-xs font-medium transition">
+                            <span>Referensi Kemendikdasmen</span>
+                            <i class="fas fa-external-link-alt text-amber-400"></i>
+                        </a>
+                        <a href="https://sekolah.data.kemendikdasmen.go.id/profil-sekolah/3A752E60-0FEA-4546-8FEF-18086934C65D" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between bg-white/10 hover:bg-white/20 px-4 py-2.5 rounded-xl text-xs font-medium transition">
+                            <span>Portal Sekolah Kita</span>
+                            <i class="fas fa-external-link-alt text-amber-400"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Unggulan -->
+    <section id="program" class="py-16 md:py-24 bg-slate-50 border-y border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-emerald-700 font-semibold text-sm tracking-wider uppercase">Keunggulan Akademik & Diniyah</span>
+                <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mt-2">Program Pendidikan Terpadu</h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                    Membekali peserta didik dengan keseimbangan penguasaan ilmu pengetahuan umum, teknologi, serta pendalaman ilmu agama Islam.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl mb-5 group-hover:bg-emerald-700 group-hover:text-white transition">
+                        <i class="fas fa-quran"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Tahfidzul Qur'an</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Program pembinaan hafalan Al-Qur'an bersanad dan tahsin tartil bagi siswa reguler maupun mukim di lingkungan pesantren.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition group">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl mb-5 group-hover:bg-amber-600 group-hover:text-white transition">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Kajian Kitab Kuning</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Pendalaman khazanah keilmuan Islam klasik (Fiqih, Nahwu, Shorof, Akhlak) yang menjadi ciri khas Pondok Pesantren Al-Ittihad.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition group">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-xl mb-5 group-hover:bg-blue-700 group-hover:text-white transition">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Kurikulum Merdeka MA</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Pembelajaran sains, ilmu sosial, literasi digital, dan bahasa asing guna mempersiapkan siswa menuju perguruan tinggi negeri maupun swasta.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition group">
+                    <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-xl mb-5 group-hover:bg-purple-700 group-hover:text-white transition">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Ekstrakurikuler & Bakat</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Pengembangan kepemimpinan melalui OSIS, Pramuka, Seni Banjari, Kaligrafi, Jurnalistik/Vlog Edukasi, dan Olahraga.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Profil Pesantren & Media Sosial -->
+    <section id="video" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-5 space-y-5">
+                    <span class="text-emerald-700 font-semibold text-sm tracking-wider uppercase">Profil & Dokumentasi</span>
+                    <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900">
+                        Mengenal Lebih Dekat Pondok Pesantren & MAS Al-Ittihad
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Didirikan sejak tahun 1956 di Desa Tawangsari, Kecamatan Trowulan, Pondok Pesantren Al-Ittihad terus berkhidmat mencetak generasi santri yang berilmu amaliah dan beramal ilmiah.
+                    </p>
+                    <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 space-y-3">
+                        <h4 class="font-bold text-emerald-950 text-sm">Ikuti Kabar Terbaru Kami:</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://www.facebook.com/p/MA-Al-Ittihad-Tawangsari-Trowulan-100063801349621/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition shadow-sm">
+                                <i class="fab fa-facebook"></i>
+                                <span>Halaman Facebook Resmi</span>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=jEJerq-mX7w" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition shadow-sm">
+                                <i class="fab fa-youtube"></i>
+                                <span>Tonton di YouTube</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Responsive YouTube Embed -->
+                <div class="lg:col-span-7">
+                    <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900 aspect-video relative">
+                        <iframe 
+                            class="w-full h-full"
+                            src="https://www.youtube.com/embed/jEJerq-mX7w" 
+                            title="Profil Pondok Pesantren Al-Ittihad Tawangsari Trowulan Mojokerto" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lokasi & Kontak -->
+    <section id="kontak" class="py-16 md:py-24 bg-slate-50 border-t border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-emerald-700 font-semibold text-sm tracking-wider uppercase">Kunjungi Kami</span>
+                <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">Lokasi & Kontak Madrasah</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Info Kontak -->
+                <div class="lg:col-span-5 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-6">
+                    <div class="space-y-5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-1">
+                                <i class="fas fa-map-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-base">Alamat Kampus Madrasah</h4>
+                                <p class="text-slate-600 text-sm mt-1 leading-relaxed">
+                                    Jl. Raden Wijaya No. 105, Dusun/Desa Tawangsari, Kecamatan Trowulan, Kabupaten Mojokerto, Jawa Timur 61362
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-1">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-base">Jam Operasional Pelayanan</h4>
+                                <p class="text-slate-600 text-sm mt-1">
+                                    Sabtu – Kamis: 07.00 – 14.00 WIB<br>
+                                    <span class="text-xs text-slate-400">(Hari Jumat Libur Kegiatan Belajar Madrasah)</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 mt-1">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-base">Kanal Informasi Resmi</h4>
+                                <p class="text-slate-600 text-sm mt-1">
+                                    Facebook: <a href="https://www.facebook.com/p/MA-Al-Ittihad-Tawangsari-Trowulan-100063801349621/" target="_blank" rel="noopener noreferrer" class="text-emerald-700 hover:underline font-medium">MA Al-Ittihad Tawangsari Trowulan</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100">
+                        <a href="https://maps.google.com/?q=MAS+Al+Ittihad+Jl+Raden+Wijaya+No+105+Tawangsari+Trowulan+Mojokerto" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 shadow-sm">
+                            <i class="fas fa-directions"></i>
+                            <span>Buka Petunjuk Arah di Google Maps</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Peta Google Maps Embed -->
+                <div class="lg:col-span-7 rounded-2xl overflow-hidden shadow-sm border border-slate-200 min-h-[320px] bg-slate-200">
+                    <iframe 
+                        class="w-full h-full min-h-[320px]"
+                        src="https://maps.google.com/maps?q=Jl.%20Raden%20Wijaya%20No.105,%20Tawangsari,%20Trowulan,%20Mojokerto&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        marginheight="0" 
+                        marginwidth="0"
+                        title="Peta Lokasi MAS Al-Ittihad Tawangsari Trowulan">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-emerald-950 text-emerald-200 pt-14 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-emerald-800/70">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-800 flex items-center justify-center text-amber-400">
+                            <i class="fas fa-mosque text-lg"></i>
+                        </div>
+                        <div>
+                            <span class="font-heading font-bold text-lg text-white block leading-none">MAS AL-ITTIHAD</span>
+                            <span class="text-xs text-emerald-400">Tawangsari • Trowulan • Mojokerto</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-emerald-300/80 leading-relaxed">
+                        Lembaga pendidikan menengah atas berciri khas Islam di bawah naungan Pondok Pesantren Al-Ittihad Tawangsari, Trowulan, Mojokerto.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-bold text-white text-base mb-4">Tautan Cepat</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#beranda" class="hover:text-amber-400 transition">Beranda</a></li>
+                        <li><a href="#profil" class="hover:text-amber-400 transition">Identitas Sekolah (NPSN 20584241)</a></li>
+                        <li><a href="#program" class="hover:text-amber-400 transition">Program Unggulan</a></li>
+                        <li><a href="#video" class="hover:text-amber-400 transition">Profil Video Pesantren</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-bold text-white text-base mb-4">Portal Data Resmi</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>
+                            <a href="https://referensi.data.kemendikdasmen.go.id/pendidikan/npsn/20584241" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition flex items-center gap-2">
+                                <i class="fas fa-angle-right text-amber-400"></i> Data Referensi Kemendikdasmen
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://sekolah.data.kemendikdasmen.go.id/profil-sekolah/3A752E60-0FEA-4546-8FEF-18086934C65D" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition flex items-center gap-2">
+                                <i class="fas fa-angle-right text-amber-400"></i> Profil Sekolah Kita
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://data-sekolah.zekolah.id/sekolah/mas-al-ittihad-110888" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition flex items-center gap-2">
+                                <i class="fas fa-angle-right text-amber-400"></i> Direktori Zekolah Indonesia
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-emerald-400 gap-4">
+                <p>&copy; <span id="year"></span> MAS Al-Ittihad Tawangsari Trowulan. Hak Cipta Dilindungi.</p>
+                <p>NPSN: 20584241 • Jl. Raden Wijaya No. 105, Mojokerto</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Info & Pra-Pendaftaran PPDB -->
+    <div id="ppdb-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 sm:p-7 shadow-2xl border border-slate-100 relative animate-fade-in">
+            <button onclick="closePpdbModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition" aria-label="Tutup">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl mb-4">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            
+            <h3 class="font-heading font-bold text-xl text-slate-900">Informasi PPDB MAS Al-Ittihad</h3>
+            <p class="text-slate-600 text-sm mt-1 mb-4">
+                Penerimaan Peserta Didik Baru (Reguler & Mukim Pondok Pesantren Al-Ittihad Tawangsari).
+            </p>
+
+            <form id="ppdb-form" onsubmit="handlePpdbSubmit(event)" class="space-y-3.5 text-sm">
+                <div>
+                    <label class="block font-medium text-slate-700 mb-1">Nama Calon Siswa</label>
+                    <input type="text" required placeholder="Masukkan nama lengkap" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 outline-none">
+                </div>
+                <div>
+                    <label class="block font-medium text-slate-700 mb-1">Asal Sekolah (MTs / SMP)</label>
+                    <input type="text" required placeholder="Contoh: MTs Al-Ittihad / SMPN 1 Trowulan" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 outline-none">
+                </div>
+                <div>
+                    <label class="block font-medium text-slate-700 mb-1">Pilihan Program</label>
+                    <select class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 outline-none bg-white">
+                        <option>Siswa Reguler + Pondok Pesantren (Mukim)</option>
+                        <option>Siswa Reguler (Non-Mukim)</option>
+                        <option>Program Tahfidzul Qur'an</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-3 rounded-xl shadow transition mt-2">
+                    Simpan Minat Pendaftaran
+                </button>
+            </form>
+
+            <div class="mt-4 pt-4 border-t border-slate-100 text-center">
+                <a href="https://www.facebook.com/p/MA-Al-Ittihad-Tawangsari-Trowulan-100063801349621/" target="_blank" rel="noopener noreferrer" class="text-xs text-emerald-700 hover:underline font-medium">
+                    <i class="fab fa-facebook mr-1"></i> Hubungi Admin via Halaman Facebook Resmi
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Toast Notification -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 hidden items-center gap-3 bg-emerald-900 text-white px-5 py-3.5 rounded-xl shadow-xl border border-emerald-700 text-sm font-medium">
+        <i class="fas fa-check-circle text-amber-400 text-base"></i>
+        <span id="toast-message">Berhasil!</span>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Set tahun otomatis di footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Toggle Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tutup mobile menu saat link diklik
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Toast Notification Helper
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 3500);
+        }
+
+        // Salin NPSN
+        function copyNpsn() {
+            const tempInput = document.createElement('input');
+            tempInput.value = '20584241';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast('NPSN 20584241 berhasil disalin!');
+        }
+
+        // Modal PPDB Controls
+        const ppdbModal = document.getElementById('ppdb-modal');
+        function openPpdbModal() {
+            ppdbModal.classList.remove('hidden');
+            ppdbModal.classList.add('flex');
+        }
+        function closePpdbModal() {
+            ppdbModal.classList.add('hidden');
+            ppdbModal.classList.remove('flex');
+        }
+        ppdbModal.addEventListener('click', (e) => {
+            if (e.target === ppdbModal) closePpdbModal();
+        });
+
+        function handlePpdbSubmit(e) {
+            e.preventDefault();
+            closePpdbModal();
+            e.target.reset();
+            showToast('Data minat PPDB tercatat! Silakan kunjungi sekretariat di Jl. Raden Wijaya No. 105.');
+        }
+    </script>
+</body>
+</html>
